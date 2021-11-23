@@ -1,0 +1,50 @@
+.app {
+  min-height: 100vh;
+  background-image: url(../../img/background.jpg);
+  background-size: cover;
+  display: grid;
+  column-gap: 10px;
+  place-content: center;
+  grid-template-columns: 0px 1fr 0px;
+
+  > * {
+    grid-column: 2;
+  }
+
+  > .full {
+    grid-column: 1 / -1;
+  }
+
+  .main-container {
+    background: $clr-light-1;
+    margin: 10px 0;
+    padding: 20px;
+    min-height: 550px;
+    border-radius: 4px;
+    flex-direction: column-reverse;
+    @include for-normal-layout {
+      flex-direction: row;
+    }
+  }
+
+  @include for-narrow-layout {
+    grid-template-columns:
+      1fr
+      minmax(auto, $mobile-breakpoint)
+      1fr;
+  }
+
+  @include for-normal-layout {
+    grid-template-columns:
+      1fr
+      minmax(auto, $narrow-breakpoint)
+      1fr;
+  }
+
+  @include for-wide-layout {
+    grid-template-columns:
+      1fr
+      minmax(auto, $normal-breakpoint)
+      1fr;
+  }
+}

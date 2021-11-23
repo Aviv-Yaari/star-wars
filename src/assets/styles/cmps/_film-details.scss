@@ -1,0 +1,9 @@
+.film-details {
+  word-break: break-word;
+  line-height: 1.5;
+  padding-bottom: 10px;
+  @include for-normal-layout {
+    padding-bottom: 0;
+    padding-left: 10px;
+  }
+}

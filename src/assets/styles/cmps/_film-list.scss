@@ -1,0 +1,13 @@
+.film-list {
+  flex-basis: 300px;
+  flex-shrink: 0;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $clr-primary-2;
+  @include for-normal-layout {
+    border-top: none;
+    padding-top: 0;
+    padding-right: 10px;
+    border-right: 1px solid $clr-primary-2;
+  }
+}

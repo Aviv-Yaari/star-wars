@@ -1,0 +1,22 @@
+.film-preview {
+  padding: 10px;
+  border: 1px solid $clr-primary-1;
+  border-radius: 4px;
+  cursor: pointer;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  &:hover {
+    background-color: $clr-primary-1;
+  }
+
+  &.selected {
+    background-color: $clr-primary-1;
+  }
+
+  .btn-favorite {
+    align-self: center;
+  }
+}
