@@ -3,6 +3,7 @@
   line-height: 1.5;
   padding-bottom: 10px;
   min-height: 630px;
+
   @include for-normal-layout {
     padding-bottom: 0;
     padding-left: 10px;

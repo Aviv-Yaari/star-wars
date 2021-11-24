@@ -1,11 +1,13 @@
 .character-list {
   justify-content: space-evenly;
+
   button {
     background: #fff;
     border: none;
     outline: none;
     padding: 0.5em;
     border-radius: 50%;
+
     &.disabled {
       pointer-events: none;
       path {
@@ -14,7 +16,8 @@
     }
   }
 
-  // ff
+  // Limit the number of characters shown, according to device width:
+  // nth-child(n + 4) => elements that are the 4th child or higher - will also select 5th,6th,7th...
   button:nth-child(4) {
     pointer-events: none;
     path {
@@ -34,7 +37,7 @@
       }
     }
 
-    .character-preview:nth-child(n + 5) {
+    .character-preview:nth-child(n + 2) {
       display: flex;
     }
 
@@ -51,7 +54,7 @@
       }
     }
 
-    .character-preview:nth-child(n + 3) {
+    .character-preview:nth-child(n + 2) {
       display: flex;
     }
 
