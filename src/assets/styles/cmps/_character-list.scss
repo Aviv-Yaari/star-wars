@@ -30,7 +30,7 @@
   }
 
   @media (min-width: 500px) {
-    button:nth-child(6) {
+    button:nth-child(5) {
       pointer-events: none;
       path {
         stroke: rgb(119, 119, 119);
@@ -41,7 +41,7 @@
       display: flex;
     }
 
-    .character-preview:nth-child(n + 6) {
+    .character-preview:nth-child(n + 5) {
       display: none;
     }
   }

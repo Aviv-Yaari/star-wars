@@ -51,24 +51,22 @@ export function App() {
   const selectedFilm = films.find(film => film.episode_id === selectedFilmId);
   return (
     <main className="app">
-      {films && (
-        <div className="main-container flex">
-          <FilmList
-            films={films}
-            selectedFilmId={selectedFilmId}
-            sort={sort}
-            onFilmClick={handleFilmClick}
-            onFilmLike={handleFilmLike}
-            onSearch={handleSearch}
-            onSort={handleSort}
-          />
-          {selectedFilm ? (
-            <FilmDetails film={selectedFilm} onFilmLike={handleFilmLike} />
-          ) : (
-            <div className="film-details" />
-          )}
-        </div>
-      )}
+      <div className="main-container flex">
+        <FilmList
+          films={films}
+          selectedFilmId={selectedFilmId}
+          sort={sort}
+          onFilmClick={handleFilmClick}
+          onFilmLike={handleFilmLike}
+          onSearch={handleSearch}
+          onSort={handleSort}
+        />
+        {selectedFilm ? (
+          <FilmDetails film={selectedFilm} onFilmLike={handleFilmLike} />
+        ) : (
+          <div className="film-details" />
+        )}
+      </div>
     </main>
   );
 }

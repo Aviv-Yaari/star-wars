@@ -12,9 +12,11 @@
     border-radius: 15px;
     outline: none;
     border: 1px solid $clr-light-1;
+    box-shadow: 0 0 2px 0 #ddd;
 
     &:focus {
       border: 1px solid #a1a1a1;
+      box-shadow: 0 0 3px 0 #ddd;
     }
   }
 

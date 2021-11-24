@@ -1,0 +1,39 @@
+.character-details {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.473);
+  display: grid;
+  place-content: center;
+  z-index: 100;
+
+  .content {
+    background-color: #fff;
+    padding: 20px;
+    gap: 40px;
+    flex-direction: column;
+    position: relative;
+
+    .btn-close {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    @include for-normal-layout {
+      flex-direction: row;
+    }
+
+    h3 span {
+      font-weight: 400;
+    }
+
+    .info {
+      word-break: break-word;
+    }
+
+    img {
+      max-width: 250px;
+      max-height: 350px;
+    }
+  }
+}

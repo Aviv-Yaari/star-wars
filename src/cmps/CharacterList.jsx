@@ -2,7 +2,7 @@ import { ReactComponent as IconNext } from '../assets/img/icon-next.svg';
 import { ReactComponent as IconPrev } from '../assets/img/icon-previous.svg';
 import { CharacterPreview } from './CharacterPreview';
 
-export function CharacterList({ characters, index, onMove }) {
+export function CharacterList({ characters, index, onMove, onSelectCharacter }) {
   const isStartOfList = index === 0;
   const isEndOfList = index === characters.length - 1;
 
@@ -14,7 +14,7 @@ export function CharacterList({ characters, index, onMove }) {
         </button>
       }
       {characters.slice(index).map(character => (
-        <CharacterPreview key={character.id} character={character} />
+        <CharacterPreview key={character.id} character={character} onSelectCharacter={onSelectCharacter} />
       ))}
       {
         <button onClick={() => !isEndOfList && onMove(1)}>
