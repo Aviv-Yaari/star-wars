@@ -15,6 +15,11 @@ export function FilmList({ films, selectedFilmId, sort, onFilmClick, onFilmLike,
           onFilmLike={onFilmLike}
         />
       ))}
+      {films.length === 0 && (
+        <div>
+          <h3>No films found</h3>
+        </div>
+      )}
     </aside>
   );
 }
