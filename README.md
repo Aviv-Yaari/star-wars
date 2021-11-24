@@ -1,6 +1,6 @@
 # Star Wars Exercise
 
-Production link: https://aviv-yaari.github.io/star-wars/
+Production link: https://aviv-yaari.github.io/star-wars/  
 Using SWAPI (Star Wars API) - https://swapi.dev/!
 
 ## Film Details
