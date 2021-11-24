@@ -22,7 +22,7 @@ export function FilmDetails({ film, onFilmLike }) {
         <CharacterDetails character={selectedCharacter} onClose={() => setSelectedCharacter(null)} />
       )}
       <article className="film-details grow">
-        <h2>
+        <h2 className="title">
           {title} - Episode {episode_id} <Favorite isFavorite={isFavorite} onClick={() => onFilmLike(episode_id)} />
         </h2>
         <h3>

@@ -64,7 +64,7 @@ export function App() {
         {selectedFilm ? (
           <FilmDetails film={selectedFilm} onFilmLike={handleFilmLike} />
         ) : (
-          <div className="film-details">
+          <div className="film-details grow">
             <h2>No film selected</h2>
           </div>
         )}

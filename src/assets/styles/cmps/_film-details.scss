@@ -2,7 +2,11 @@
   word-break: break-word;
   line-height: 1.5;
   padding-bottom: 10px;
-  min-height: 550px;
+  min-height: 580px;
+
+  .title {
+    min-height: 80px;
+  }
 
   @include for-normal-layout {
     padding-bottom: 0;
