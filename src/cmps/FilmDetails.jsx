@@ -1,8 +1,19 @@
+import { useEffect, useState } from 'react';
 import { Favorite } from './Favorite';
 import { CharacterList } from './CharacterList';
 
 export function FilmDetails({ film, onFilmLike }) {
+  const [characterIndex, setCharacterIndex] = useState(0);
   const { title, episode_id, director, producer, characters, opening_crawl, isFavorite } = film;
+
+  const handleMove = diff => {
+    setCharacterIndex(current => current + diff);
+  };
+
+  useEffect(() => {
+    setCharacterIndex(0);
+  }, [film]);
+
   return (
     <article className="film-details grow">
       <h2>
@@ -17,7 +28,7 @@ export function FilmDetails({ film, onFilmLike }) {
       <h3>Summary:</h3>
       <p className="summary">{opening_crawl}</p>
       <h3>Characters:</h3>
-      <CharacterList characters={characters} />
+      <CharacterList characters={characters} index={characterIndex} onMove={handleMove} />
     </article>
   );
 }

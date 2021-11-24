@@ -19,11 +19,20 @@
     background: $clr-light-1;
     margin: 10px 0;
     padding: 0.8em;
-    min-height: 550px;
     border-radius: 4px;
     flex-direction: column-reverse;
     @include for-normal-layout {
       flex-direction: row;
+    }
+  }
+  .loading-container {
+    background: $clr-light-1;
+    margin: 10px 0;
+    text-align: center;
+    padding-top: 20px;
+    p {
+      line-height: 1.5;
+      margin: 20px;
     }
   }
 

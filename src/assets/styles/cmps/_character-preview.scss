@@ -9,12 +9,9 @@
     object-position: center;
     object-fit: cover;
     box-shadow: 0 0 2px 0 $clr-dark-1;
-    // @include for-normal-layout {
-    //   width: 100px;
-    //   height: 100px;
-    // }
   }
   .name {
+    font-size: 0.8em;
     text-align: center;
     min-height: 50px;
   }

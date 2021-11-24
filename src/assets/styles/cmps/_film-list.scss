@@ -4,6 +4,19 @@
   gap: 10px;
   padding-top: 10px;
   border-top: 1px solid $clr-primary-2;
+
+  input {
+    font-size: 0.9em;
+    padding: 10px 14px;
+    font-family: inherit;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid $clr-light-2;
+    &:focus {
+      border: 1px solid #a1a1a1;
+    }
+  }
+
   @include for-normal-layout {
     border-top: none;
     padding-top: 0;

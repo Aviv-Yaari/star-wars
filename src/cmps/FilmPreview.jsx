@@ -9,7 +9,7 @@ export function FilmPreview({ film, isSelected, onFilmClick, onFilmLike }) {
       <div>
         <h3>{title}</h3>
         <p className="subtitle">
-          Episode {episode_id} • {release_date.slice(0, 4)}
+          Episode {episode_id} • {release_date}
         </p>
       </div>
       <Favorite isFavorite={isFavorite} onClick={() => onFilmLike(episode_id)} />

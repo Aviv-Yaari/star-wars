@@ -1,8 +1,11 @@
+import { FilmListSort } from './FilmListSort';
 import { FilmPreview } from './FilmPreview';
 
-export function FilmList({ films, selectedFilmId, onFilmClick, onFilmLike }) {
+export function FilmList({ films, selectedFilmId, sort, onFilmClick, onFilmLike, onSearch, onSort }) {
   return (
     <aside className="film-list flex column">
+      <input type="text" placeholder="Search..." onChange={onSearch} />
+      <FilmListSort sort={sort} onSort={onSort} />
       {films.map(film => (
         <FilmPreview
           key={film.episode_id}
