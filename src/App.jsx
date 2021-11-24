@@ -6,12 +6,13 @@ import { storageService } from './services/storage.service';
 
 export function App() {
   const [films, setFilms] = useState(null);
-  const [selectedFilmId, setSelectedFilmId] = useState(storageService.load('selectedFilmId') || 4);
+  const [selectedFilmId, setSelectedFilmId] = useState(4);
 
   useEffect(() => {
     const getData = async () => {
       const films = await filmService.query();
       setFilms(films);
+      setSelectedFilmId(storageService.load('selectedFilmId') || 4);
     };
     getData();
   }, []);

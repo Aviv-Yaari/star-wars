@@ -1,0 +1,61 @@
+.character-list {
+  button {
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: 0.5em;
+    border-radius: 50%;
+    &.disabled {
+      pointer-events: none;
+      path {
+        stroke: rgb(119, 119, 119);
+      }
+    }
+  }
+
+  // ff
+  button:nth-child(4) {
+    pointer-events: none;
+    path {
+      stroke: rgb(119, 119, 119);
+    }
+  }
+
+  .character-preview:nth-child(n + 4) {
+    display: none;
+  }
+
+  @media (min-width: 500px) {
+    button:nth-child(6) {
+      pointer-events: none;
+      path {
+        stroke: rgb(119, 119, 119);
+      }
+    }
+
+    .character-preview:nth-child(n + 5) {
+      display: flex;
+    }
+
+    .character-preview:nth-child(n + 6) {
+      display: none;
+    }
+  }
+
+  @include for-wide-layout {
+    button:nth-child(8) {
+      pointer-events: none;
+      path {
+        stroke: rgb(119, 119, 119);
+      }
+    }
+
+    .character-preview:nth-child(n + 3) {
+      display: flex;
+    }
+
+    .character-preview:nth-child(n + 8) {
+      display: none;
+    }
+  }
+}

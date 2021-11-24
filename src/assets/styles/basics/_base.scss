@@ -54,6 +54,10 @@ table {
 
 /* End of reset */
 
+::selection {
+	background: $clr-primary-1;
+}
+
 a {
 	text-decoration: none;
 }

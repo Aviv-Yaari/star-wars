@@ -7,14 +7,25 @@ async function query() {
   const cacheData = storageService.load('films');
   if (cacheData) return cacheData;
   const response = await httpService.get('https://swapi.dev/api/films/?format=json');
-  const { results: films } = response;
+  let { results: films } = response;
+  const charactersMap = await _getCharactersData(films);
   for (const film of films) {
-    const prms = film.characters.slice(5, 15).map(character => httpService.get(character + '?format=json'));
-    const charactersInfo = await Promise.all(prms);
-    film.characters = charactersInfo;
+    film.characters = film.characters.map(character => {
+      const id = character.split('https://swapi.dev/api/people/')[1].split('/')[0];
+      return charactersMap[id];
+    });
   }
   storageService.save('films', films);
   return films;
+}
+
+async function _getCharactersData() {
+  const characters = await httpService.get('https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json');
+  const map = characters.reduce((map, character) => {
+    map[character.id] = character;
+    return map;
+  }, {});
+  return map;
 }
 
 function toggleFavorite(films, filmId) {

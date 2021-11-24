@@ -1,0 +1,21 @@
+.character-preview {
+  padding: 10px;
+  gap: 10px;
+  width: 100px;
+  img {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+    box-shadow: 0 0 2px 0 $clr-dark-1;
+    // @include for-normal-layout {
+    //   width: 100px;
+    //   height: 100px;
+    // }
+  }
+  .name {
+    text-align: center;
+    min-height: 50px;
+  }
+}
