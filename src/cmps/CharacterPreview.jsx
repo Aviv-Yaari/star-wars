@@ -3,7 +3,7 @@ export function CharacterPreview({ character }) {
   return (
     <article className="character-preview flex column align-center">
       <img src={image} alt={name} />
-      <span className="name">{name}</span>
+      <span className="name flex align-center">{name}</span>
     </article>
   );
 }

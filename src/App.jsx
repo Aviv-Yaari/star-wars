@@ -1,6 +1,6 @@
-import { Alert, LinearProgress, Snackbar } from '@mui/material';
-
 import { useEffect, useMemo, useState } from 'react';
+import { AppError } from './cmps/AppError';
+import { AppLoading } from './cmps/AppLoading';
 import { FilmDetails } from './cmps/FilmDetails';
 import { FilmList } from './cmps/FilmList';
 import { filmService } from './services/film.service';
@@ -20,7 +20,7 @@ export function App() {
         const films = await filmService.query(filter, sort);
         setFilms(films);
       } catch (error) {
-        setError('Could not get film data');
+        setError('Could not get film data, try to refresh');
       }
     };
     getData();
@@ -35,10 +35,6 @@ export function App() {
     setSort(sort => ({ [fieldName]: sort[fieldName] ? sort[fieldName] * -1 : 1 }));
   };
 
-  const handleCloseMessage = () => {
-    setError(null);
-  };
-
   const handleFilmClick = id => {
     setSelectedFilmId(id);
     storageService.save('selectedFilmId', id);
@@ -50,27 +46,8 @@ export function App() {
     setFilms(films);
   };
 
-  if (error)
-    return (
-      <main className="app">
-        <Snackbar open={!!error} autoHideDuration={6000} onClose={handleCloseMessage}>
-          <Alert onClose={handleCloseMessage} severity="error" sx={{ width: '100%' }}>
-            {error}
-          </Alert>
-        </Snackbar>
-      </main>
-    );
-
-  if (!films)
-    return (
-      <main className="app">
-        <div className="loading-container">
-          <LinearProgress color="secondary" />
-          <p>Loading..</p>
-          <p>API might be slow sometimes, May the force be with you</p>
-        </div>
-      </main>
-    );
+  if (error) return <AppError error={error} />;
+  if (!films) return <AppLoading />;
   const selectedFilm = films.find(film => film.episode_id === selectedFilmId);
   return (
     <main className="app">
