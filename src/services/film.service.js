@@ -12,23 +12,19 @@ async function query(filter, sort) {
 }
 
 async function _getData() {
-  try {
-    const response = await httpService.get('https://swapi.dev/api/films/?format=json');
-    // const response = await httpService.get('https://balblablablablaswapi.dev/api/films/?format=json'); // to simulate error
-    let { results: films } = response;
-    const charactersMap = await _getCharactersData(films);
-    for (const film of films) {
-      film.release_date = parseInt(film.release_date.slice(0, 4));
-      film.characters = film.characters.map(character => {
-        const id = character.split('https://swapi.dev/api/people/')[1].split('/')[0];
-        return charactersMap[id];
-      });
-    }
-    storageService.save('films', films);
-    return films;
-  } catch (err) {
-    throw err;
+  const response = await httpService.get('https://swapi.dev/api/films/?format=json');
+  // const response = await httpService.get('https://balblablablablaswapi.dev/api/films/?format=json'); // to simulate error
+  let { results: films } = response;
+  const charactersMap = await _getCharactersData(films);
+  for (const film of films) {
+    film.release_date = parseInt(film.release_date.slice(0, 4));
+    film.characters = film.characters.map(character => {
+      const id = character.split('https://swapi.dev/api/people/')[1].split('/')[0];
+      return charactersMap[id];
+    });
   }
+  storageService.save('films', films);
+  return films;
 }
 
 async function _getCharactersData() {

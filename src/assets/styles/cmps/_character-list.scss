@@ -1,3 +1,18 @@
+@mixin limit-list($count) {
+  button:nth-child(#{$count + 2}) {
+    pointer-events: none;
+    path {
+      stroke: rgb(119, 119, 119);
+    }
+  }
+  .character-preview:nth-child(n + 2) {
+    display: flex;
+  }
+  .character-preview:nth-child(n + #{$count + 2}) {
+    display: none;
+  }
+}
+
 .character-list {
   justify-content: space-evenly;
 
@@ -16,50 +31,14 @@
     }
   }
 
-  // Limit the number of characters shown, according to device width:
-  // nth-child(n + 4) => elements that are the 4th child or higher - will also select 5th,6th,7th...
-  button:nth-child(4) {
-    pointer-events: none;
-    path {
-      stroke: rgb(119, 119, 119);
-    }
+  @include limit-list(2);
+  @media (min-width: 400px) {
+    @include limit-list(3);
   }
-
-  .character-preview:nth-child(n + 4) {
-    display: none;
+  @media (min-width: 800px) {
+    @include limit-list(4);
   }
-
-  @media (min-width: 500px) {
-    button:nth-child(5) {
-      pointer-events: none;
-      path {
-        stroke: rgb(119, 119, 119);
-      }
-    }
-
-    .character-preview:nth-child(n + 2) {
-      display: flex;
-    }
-
-    .character-preview:nth-child(n + 5) {
-      display: none;
-    }
-  }
-
-  @include for-wide-layout {
-    button:nth-child(8) {
-      pointer-events: none;
-      path {
-        stroke: rgb(119, 119, 119);
-      }
-    }
-
-    .character-preview:nth-child(n + 2) {
-      display: flex;
-    }
-
-    .character-preview:nth-child(n + 8) {
-      display: none;
-    }
+  @media (min-width: 900px) {
+    @include limit-list(5);
   }
 }
